@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jgarcia5.Views.vPersona"
+             Title="vPersona">
+    <ScrollView>
+        
+    
+        <VerticalStackLayout
+        Spacing="25">
+        <Label 
+            Text="BASE DE DATOS SQLITE"
+            FontSize="24"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry x:Name="txtName"
+               Placeholder="Ingrese un nombre"/>
+        
+        
+        <Picker x:Name="pickerPersonas"
+                Title="Seleccione una persona"
+                SelectedIndexChanged="pickerPersonas_SelectedIndexChanged"/>
+
+       
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnInsertar"
+                    Text="Insertar"
+                    Clicked="btnInsertar_Clicked"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+            <Label x:Name="LblStatus"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   TextColor="Blue"/>
+            <Button x:Name="btnObtener"
+                   Text="Listar personas"
+                   Clicked="btnObtener_Clicked"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+
+            <CollectionView x:Name="listaPersona"
+                            Grid.Row="3"
+                            Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Id}" Grid.Column="0"/>
+                            <Label Text="{Binding Name}" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button x:Name="btnActualizar"
+        Text="Actualizar"
+        Clicked="btnActualizar_Clicked"
+        Grid.Row="4"
+        Grid.Column="0"/>
+            
+             <Button x:Name="btnEliminar"
+        Text="Eliminar"
+        Clicked="btnEliminar_Clicked"
+        Grid.Row="5"
+        Grid.Column="0"/>
+
+             <Entry x:Name="txtId"
+                    IsReadOnly="True"
+        Placeholder="Ingrese ID"
+        Grid.Row="6"
+                   Grid.Column="0"
+/>
+            <Entry x:Name="txtNuevoNombre"
+            Placeholder="Nuevo Nombre"
+            Grid.Row="7"
+                   Grid.Column="0"
+/>
+
+
+
+
+
+
+
+
+
+        </Grid>
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
